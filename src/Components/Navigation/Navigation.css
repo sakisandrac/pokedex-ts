@@ -1,0 +1,40 @@
+.nav-bar {
+  background-color: #12677b;
+  display: flex;
+  align-items: center;
+  height: 80px;
+  box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
+  font-family: 'Lilita One', cursive;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-link-container {
+  padding-left: 10px;
+  display: flex;
+  width: 25%;
+  justify-content: space-between;
+}
+
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #de3519;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .nav-link-container {
+    padding-left: 10px;
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+  }
+  
+}

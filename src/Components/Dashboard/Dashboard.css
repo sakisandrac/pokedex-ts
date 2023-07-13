@@ -1,0 +1,31 @@
+.dashboard-container {
+  height: 100vh;
+  background-image: url('./background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+.main-container {
+  border: 6px solid #de3519;
+  border-radius: 15px;
+  height: 70%;
+  margin: 0 60px;
+  display: flex;
+  background-color: #eee8e76d;
+}
+
+.username-container {
+  padding-top: 15px;
+}
+
+.username-label {
+  margin-right: 10px;
+}
+
+.welcome-msg {
+  margin-top: 0px;
+  padding-top: 10px;
+  font-family: 'Lilita One', cursive;
+}
+

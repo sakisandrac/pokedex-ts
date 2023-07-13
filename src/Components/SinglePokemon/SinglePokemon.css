@@ -1,0 +1,29 @@
+.main-pokemon-container {
+  height: 100vh;
+  background-image: url('../Dashboard/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.pokemon-name-single {
+  font-family: 'Lilita One', cursive;
+  font-size: 1.8rem;
+}
+
+.single-pokemon-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.single-details-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+}

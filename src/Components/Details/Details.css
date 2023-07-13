@@ -1,0 +1,14 @@
+.details-container {
+  flex-grow: 1;
+  max-height: 400px;
+  width: 90%;
+  max-width: 400px;
+}
+
+.moves-container {
+  text-align: left;
+  padding: 0 30px 15px 30px;
+  max-height: 200px;
+  overflow: scroll;
+  margin-bottom: 20px;
+}
