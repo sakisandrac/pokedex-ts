@@ -8,10 +8,11 @@ interface DashboardProps {
   savePokemon: () => void,
   randomPokemon: SavedPokemonI,
   getNewRandomPokemon: () => void, 
-  showPokemonDetails: () => void
+  showPokemonDetails: () => void,
+  savedPokemon: any[]
 }
 
-const Dashboard: React.FC<DashboardProps> = ({ savePokemon, randomPokemon, getNewRandomPokemon, showPokemonDetails}) => {
+const Dashboard: React.FC<DashboardProps> = ({ savePokemon, savedPokemon, randomPokemon, getNewRandomPokemon, showPokemonDetails}) => {
   const [userName, setUserName] = useState('');
 
   const updateUsernameInput = (e: React.ChangeEvent<HTMLInputElement>) => {

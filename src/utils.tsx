@@ -6,7 +6,7 @@ const capitalizeName = (name: string) => {
   return `${name.split('')[0].toUpperCase()}${name.substring(1)}`
 }
 
-const cleanUpData = (data) => {
+const cleanUpData = (data: any) => {
   return {
     abilities: data.abilities,
     id: data.id,

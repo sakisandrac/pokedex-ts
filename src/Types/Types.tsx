@@ -21,7 +21,7 @@ interface MovesI {
 
 interface CleanPokeDataI {
   abilities:  AbilitiesI[]
-  id: number,
+  id: string,
   name: string,
   types: TypesI[],
   moves: MovesI[],

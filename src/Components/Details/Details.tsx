@@ -3,7 +3,7 @@ import './Details.css';
 import { SavedPokemonI, CleanPokeDataI, AllPokemonI } from '../../Types/Types'
 
 interface DetailsProps {
-  randomPokemon: SavedPokemonI
+  randomPokemon: SavedPokemonI | CleanPokeDataI
 }
 
 const Details: React.FC<DetailsProps> = ({ randomPokemon }) => {

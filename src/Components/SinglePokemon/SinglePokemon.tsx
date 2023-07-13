@@ -4,14 +4,21 @@ import { Link, useParams } from 'react-router-dom';
 import { getSinglePokemon } from '../../apiCalls';
 import { capitalizeName } from '../../utils';
 import Details from '../Details/Details';
+import { CleanPokeDataI } from '../../Types/Types';
 
 const SinglePokemon = () => {
   const { id } = useParams();
-  const [pokemon, setPokemon] = useState({})
-  
+  const [pokemon, setPokemon] = useState<CleanPokeDataI>({
+    abilities:  [],
+    id: "",
+    name: "",
+    types: [],
+    moves: [],
+    weight: 0
+  })
+
   useEffect(() => {
     getSinglePokemon(id).then(data => {
-      console.log('in single', data)
       setPokemon(data)
     })
   }, [])
