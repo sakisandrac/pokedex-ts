@@ -1,9 +1,13 @@
 import React from 'react';
 import './SavedPokemon.css';
 import { Link } from 'react-router-dom';
+import { SavedPokemonI } from '../../Types/Types'
 
-const SavedPokemon = ({savedPokemon}) => {
-console.log('saved', savedPokemon)
+interface SavedPokemonProps {
+  savedPokemon: SavedPokemonI[]
+}
+
+const SavedPokemon: React.FC<SavedPokemonProps> = ({savedPokemon}) => {
 
   return (
     <div className='main-saved-container'>

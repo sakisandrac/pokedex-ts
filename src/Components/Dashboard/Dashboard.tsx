@@ -2,11 +2,20 @@ import React, { useState } from 'react';
 import './Dashboard.css';
 import RandomPokemon from '../RandomPokemon/RandomPokemon';
 import Details from '../Details/Details';
+import { SavedPokemonI } from '../../Types/Types';
 
-const Dashboard = ({savedPokemon, savePokemon, randomPokemon, getNewRandomPokemon, showPokemonDetails}) => {
+interface DashboardProps {
+  savePokemon: () => void,
+  randomPokemon: SavedPokemonI,
+  getNewRandomPokemon: () => void, 
+  showPokemonDetails: () => void,
+  savedPokemon: any[]
+}
+
+const Dashboard: React.FC<DashboardProps> = ({ savePokemon, savedPokemon, randomPokemon, getNewRandomPokemon, showPokemonDetails}) => {
   const [userName, setUserName] = useState('');
 
-  const updateUsernameInput = (e) => {
+  const updateUsernameInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const {value} = e.target;
     setUserName(value);
   };
@@ -19,9 +28,8 @@ const Dashboard = ({savedPokemon, savePokemon, randomPokemon, getNewRandomPokemo
         </div>
         <h1 className='welcome-msg'>{`Welcome, ${userName? userName : 'Pokemon Trainer'}`}!</h1>
       <main className='main-container'>
-        <RandomPokemon 
-        savedPokemon={savedPokemon} 
-        randomPokemon={randomPokemon} 
+        <RandomPokemon
+        randomPokemon={randomPokemon}
         getNewRandomPokemon={getNewRandomPokemon}
         showPokemonDetails={showPokemonDetails}
         savePokemon={savePokemon}

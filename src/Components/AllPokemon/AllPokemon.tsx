@@ -2,13 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { getAllPokemon } from '../../apiCalls';
 import { capitalizeName, cleanUpData } from '../../utils';
 import './AllPokemon.css';
+import { AllPokemonI } from '../../Types/Types'
 
 const AllPokemon = () => {
-
-  interface AllPokemonI {
-    name: string,
-    url: string
-  }
 
   const [allPokemon, setAllPokemon] = useState<AllPokemonI[]>([]); 
   const [search, setSearch] = useState<string>("");

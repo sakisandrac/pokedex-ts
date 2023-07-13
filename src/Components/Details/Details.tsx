@@ -1,10 +1,15 @@
 import React from 'react';
 import './Details.css';
+import { SavedPokemonI, CleanPokeDataI, AllPokemonI } from '../../Types/Types'
 
-const Details = ({randomPokemon}) => {
+interface DetailsProps {
+  randomPokemon: SavedPokemonI | CleanPokeDataI
+}
+
+const Details: React.FC<DetailsProps> = ({ randomPokemon }) => {
   
-  const pokeData = (data) => {
-    if (data.data) {
+  const pokeData = (data: SavedPokemonI | CleanPokeDataI ): any => {
+    if ("data" in data) {
       return data.data
     } else {
       return data
@@ -15,11 +20,10 @@ const Details = ({randomPokemon}) => {
     <div className='details-container'>
       <h2 className='random-pokemon-header'>More Details</h2>
       <section className='data-container'>
-        <p>Base Experience: {pokeData(randomPokemon).base_experience}</p>
         <p>Weight: {pokeData(randomPokemon).weight} kg</p>
         <ul className='abilities-header'>Moves:</ul>
         <div className='moves-container'>
-          {pokeData(randomPokemon).moves?.map(move => (<li key={move.move.name}>{move.move.name}</li>))}
+          {pokeData(randomPokemon).moves?.map((move: {move: AllPokemonI}) => (<li key={move.move.name}>{move.move.name}</li>))}
         </div>
       </section>
     </div>

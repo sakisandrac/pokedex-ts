@@ -1,4 +1,4 @@
-const getSinglePokemon = (num) => {
+const getSinglePokemon = (num: number | string | undefined) => {
   return fetch(`https://pokeapi.co/api/v2/pokemon/${num}/`)
     .then(res => {
       if (!res.ok) {

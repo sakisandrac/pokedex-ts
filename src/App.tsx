@@ -5,35 +5,25 @@ import Dashboard from './Components/Dashboard/Dashboard';
 import SavedPokemon from './Components/SavedPokemon/SavedPokemon';
 import { useState } from 'react';
 import { getSinglePokemon } from './apiCalls';
-import { getRandomNum, cleanUpData } from './utils';
+import { getRandomNum } from './utils';
 import { useEffect } from 'react';
 import AllPokemon from './Components/AllPokemon/AllPokemon';
 import SinglePokemon from './Components/SinglePokemon/SinglePokemon';
 
-interface RandPokemonI {
-  number: string,
-  data: PokeDataI,
-  image: string,
-  call: boolean,
-  showDetails: boolean
-}
-
-interface PokeDataI {
-  abilities: any[],
-  id: number,
-  name: string,
-  types: any[],
-  moves: any[],
-  weight: number
-}
-
 function App() {
 
-  const [savedPokemon, setSavedPokemon] = useState([]);
+  const [savedPokemon, setSavedPokemon] = useState<any[]>([]);
 
   const [randomPokemon, setRandomPokemon] = useState({
-    number: "",
-    data: {name: "loading"},
+    number: 0,
+    data: { 
+      name: "loading", 
+      abilities: [{ability: {name: "", url: ""}, is_hidden: false, slot: 1}], 
+      id: "",
+      weight: 0,
+      moves: [{move: {name: "", url: ""}, version_group_details: []}],
+      types: [{slot: 1, type: {name: "", url: "" }}]
+    },
     image: "",
     call: true,
     showDetails: false
@@ -44,11 +34,10 @@ function App() {
 
     getSinglePokemon(num)
     .then(data => {
-      console.log(data)
       setRandomPokemon(prev => {
         return {
           ...prev,
-          number: data.number,
+          number: data.id,
           data: data,
           image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${num}.png`
         }
@@ -66,6 +55,7 @@ function App() {
         return prev
       }
     })
+    console.log('saved', savedPokemon)
   }
 
   const getNewRandomPokemon = () => {
@@ -94,8 +84,8 @@ function App() {
       <Routes>
         <Route path="/" element={
         <Dashboard 
-        savePokemon={savePokemon}
         savedPokemon={savedPokemon}
+        savePokemon={savePokemon}
         randomPokemon={randomPokemon}
         getNewRandomPokemon={getNewRandomPokemon}
         showPokemonDetails={showPokemonDetails}

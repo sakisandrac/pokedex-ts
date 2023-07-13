@@ -1,8 +1,16 @@
 import React from 'react';
 import './RandomPokemon.css'
 import { capitalizeName } from '../../utils';
+import { SavedPokemonI } from '../../Types/Types';
 
-const RandomPokemon = ({randomPokemon, getNewRandomPokemon, showPokemonDetails, savePokemon}) => {
+interface RandomPokemonProps {
+  randomPokemon: SavedPokemonI,
+  getNewRandomPokemon: () => void, 
+  showPokemonDetails: () => void,
+  savePokemon: () => void,
+}
+
+const RandomPokemon: React.FC<RandomPokemonProps> = ({randomPokemon, getNewRandomPokemon, showPokemonDetails, savePokemon}) => {
 
   return (
     <div className='random-pokemon-container'>
